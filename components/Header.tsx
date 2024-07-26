@@ -1,15 +1,36 @@
-// components/Header.tsx
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Header: React.FC = () => {
+  const [time, setTime] = useState('');
+  const [date, setDate] = useState('');
+
+  useEffect(() => {
+    const updateDateTime = () => {
+      const now = new Date();
+      const hours = now.getHours();
+      const minutes = now.getMinutes();
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      const formattedTime = `${hours % 12 || 12}:${minutes < 10 ? `0${minutes}` : minutes} ${ampm}`;
+      const options: Intl.DateTimeFormatOptions = { weekday: 'long', day: 'numeric', month: 'long' };
+      const formattedDate = now.toLocaleDateString('en-US', options);
+      
+      setTime(formattedTime);
+      setDate(formattedDate);
+    };
+
+    updateDateTime();
+    const intervalId = setInterval(updateDateTime, 1000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <header className="header">
       <div className="left-section">
         <div className="time-date-weather">
           <div className="time-date">
-            <p id="time">12:45 PM</p>
-            <p id="date">Sunday, 5 May</p>
+            <p id="time">{time}</p>
+            <p id="date">{date}</p>
           </div>
           <div className="weather">
             <p id="weather-icon"><img src="images/Vector (6).svg" alt="" /></p>

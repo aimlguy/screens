@@ -1,4 +1,6 @@
 /* General styles */
+/* Import Urbanist font */
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400&display=swap');
 body {
     font-family: 'Urbanist', sans-serif;
     margin: 0;
@@ -7,6 +9,19 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    color: #fff; /* White text */
+    background-color: #000;
+}
+
+.container {
+    width: 100%;
+    max-width: 2000px; /* Increased width to fit the icons */
+    height: 100%;
+    max-height: 640px; /* Full height with a max */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
     background: linear-gradient(
         to bottom,
         #131D43 0%,
@@ -14,185 +29,12 @@ body {
         #1D2A5D 40%,
         #12224F 68%,
         #081F44 100%
-    ), #313131; /* Fallback color */
-    color: #fff; /* White text */
-}
-
-.container {
-    width: 100%;
-    max-width: 2500px; /* Increased width to fit the icons */
-    height: 100%;
-    max-height: 600px; /* Full height with a max */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: absolute;
+    ), #313131;
     border: 2px solid #fff; /* Thin white border */
+    transform: translate(-50%,-50%);
 }
 
-.header, .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.header {
-    width: 100%;
-    height: 60px; /* Adjust as needed */
-    padding: 0 20px; /* Added padding for spacing */
-}
-
-.left-section, .right-section {
-    display: flex;
-    align-items: center;
-    margin-top: 25px;
-}
-
-.right-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    margin-top: 25px; /* Align items to the bottom */
-}
-
-.time-date-weather {
-    display: flex;
-    align-items: center;
-}
-
-.time-date {
-    display: flex;
-    flex-direction: column;
-    padding-left: 20px;
-    margin-right: 10px;
-}
-
-.time-date #time {
-    font-size: 36px;
-    margin-bottom: 2px; /* Reduced line width */
-}
-
-.time-date #date {
-    font-size: 18px;
-    margin-top: 2px; /* Reduced line width */
-}
-
-.weather {
-    display: flex;
-    align-items: center;
-    margin-left: 10px; /* Ensure there is space between time and weather */
-}
-
-.weather #weather-icon {
-    font-size: 24px;
-    margin-right: 10px;
-}
-
-.weather #temperature {
-    font-size: 18px;
-}
-
-.connectivity-icons {
-    position: absolute;
-    top: 25px; /* Adjusted distance from top */
-    right: 10px; /* Adjusted distance from right */
-    display: flex;
-    justify-content: flex-end; /* Align icons to the right */
-    align-items: center;
-    z-index: 100; /* Ensure icons are on top */
-}
-
-.connectivity-icons .icon {
-    width: 24px;
-    height: 24px;
-    margin-left: 10px; /* Space between icons */
-    background-size: contain;
-    background-repeat: no-repeat;
-}
-
-.battery-info-bar {
-    display: flex;
-    align-items: center; /* Align items to the center vertically */
-    justify-content: flex-end; /* Align items to the right */
-    margin-right: 50px; /* Adjust margin to align */
-    margin-top: auto; /* Push to the bottom */
-    padding-bottom: 20px; /* Add padding to create space */
-    position: absolute; /* Position absolute for precise alignment */
-    top: 50%; /* Align vertically in the middle */
-    transform: translateY(-50%); /* Center vertically */
-    right: 0; /* Align to the right */
-}
-
-.battery-info {
-    text-align: right;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 255px;
-    margin-right: 60px; /* Increased margin to push stats left */
-}
-
-.remaining-km {
-    font-family: 'Urbanist', sans-serif;
-    font-weight: 400; /* Reduced font weight */
-    font-size: 38px;
-    margin-bottom: 0; /* Reduce margin */
-}
-.unit {
-    font-family: 'Urbanist', sans-serif;
-    font-weight: 400; /* Reduced font weight */
-    font-size: 18px;
-    margin-bottom: 0; /* Reduce margin */
-}
-
-.remaining-text, .battery-text, .average-text {
-    font-size: 15px;
-    font-weight: 400; /* Reduced font weight */
-    margin-top: 0; /* Reduce margin */
-    margin-bottom: 5px; /* Adjust margin */
-}
-
-.battery-percentage {
-    font-family: 'Urbanist', sans-serif;
-    font-weight: 400; /* Reduced font weight */
-    font-size: 38px;
-    margin-bottom: 0; /* Reduce margin */
-}
-
-.avg-wh {
-    font-family: 'Urbanist', sans-serif;
-    font-weight: 400; /* Reduced font weight */
-    font-size: 38px;
-    margin-bottom: 0; /* Reduce margin */
-}
-
-.battery-bar-container {
-    width: 16px;
-    height: 306px; /* Adjusted height */
-    border-radius: 170px;
-    background-color: #D9D9D9;
-    position: absolute; /* Changed to absolute for precise positioning */
-    top: -5%; /* Adjust to align with stats */
-    right: 20px; /* Adjust to align with stats */
-}
-
-.battery-bar-base {
-    width: 100%;
-    height: 100%;
-    background-color: #D9D9D9;
-    position: absolute;
-    bottom: 0;
-    border-radius: 170px; /* Rounded bottom */
-}
-
-.battery-bar-fill {
-    width: 100%;
-    background-color: #2CBE6B;
-    position: absolute;
-    bottom: 0;
-    height: 85%; /* Initially set to 85% */
-    border-radius: 170px; /* Rounded top and bottom */
-}
+/* Removed header styles */
 
 .main-content {
     flex: 1;
@@ -205,205 +47,10 @@ body {
 .frame-image {
     width: 310px;
     height: 265px;
-    margin-right: 50px; /* Adjusted spacing */
+    margin-right: 100px; /* Adjusted spacing */
 }
 
-.music-toolbar {
-    position: relative;
-    background-color: #1D2C53;
-    width: 1035px; /* Same width as before */
-    height: 394px; /* Same height as before */
-    padding: 0px;
-    
-    border-radius: 38px; /* Optional: Add rounded corners */
-}
-
-.main-screen {
-    position: relative; /* Adjusted to relative for proper positioning */
-    width: 100%;
-    height: 100%;
-}
-
-.current-song {
-    position: absolute;
-    top: 30px;
-    left: 20px;
-    width: 234px;
-    /*text-align: center;*/
-    padding-left: 20px;
-}
-
-.current-song-img {
-    width: 234px;
-    height: 234px;
-    display: block;
-    margin: 0 auto 10px;
-}
-
-.current-song-title, .current-song-description {
-    width: 100%;
-    background: none;
-    border: none;
-    color: white;
-}
-
-.current-song-title {
-    font-family: 'Inter';
-    font-size: 14px;
-    margin-bottom: 5px;
-}
-
-.current-song-description {
-    font-family: 'Inter';
-    font-size: 14px;
-}
-
-.progress-bar {
-    width: 234px;
-    height: 4px;
-    display: block;
-    margin-top: 35px;
-}
-
-.play-button-block {
-    position: absolute;
-    top: 20px;
-    left: 300px;
-    background-color: #4A5675;
-    width: 310px;
-    height: 86px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    border-radius: 50px;
-}
-
-.play-button {
-    width: 26px;
-    height: 26px;
-    background-color: transparent;
-    border: none;
-}
-
-.search-button {
-    position: absolute;
-    top: 30px;
-    left: 630px;
-    width: 62px;
-    height: 62px;
-    background-color: #4A5675;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-}
-
-.search-button img {
-    width: 26px;
-    height: 26px;
-}
-
-.heart-button {
-    position: absolute;
-    top: 40px;
-    left: 750px;
-    width: 50px;
-    height: 50px;
-    background-color: transparent;
-    border: none;
-}
-
-.down-button {
-    position: absolute;
-    top: 50px;
-    left: 950px;
-    background-color: transparent;
-    border: none;
-}
-
-.down-button img {
-    width: 28px;
-    height: 21.75px;
-}
-
-.songs-block {
-    position: absolute;
-    top: 150px;
-    left: 300px;
-    width: 705px;
-    height: 240px;
-}
-
-.music-options-block {
-    width: 100%;
-    height: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 1px solid white;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-    background-color: #4A5675;
-}
-
-.music-option {
-    font-family: 'Montserrat';
-    font-size: 24px;
-    background: none;
-    border: none;
-    color: white;
-    align-items: center;
-    justify-content: space-around;
-    margin: 0 40px;
-    cursor: pointer;
-}
-
-.music-option.active {
-    color: white;
-    text-shadow: 0 0 10px white;
-}
-
-.music-option.inactive {
-    opacity: 0.6;
-}
-
-.favourites-block {
-    width: 100%;
-    height: 170px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #4A5675;
-    padding:0px;
-}
-
-.favourites-block p {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    font-family: 'Montserrat';
-    font-size: 22px;
-}
-
-.favourite-buttons {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-}
-
-.favourite-button {
-    width: 85.18px;
-    height: 85.18px;
-    background: none;
-    border: none;
-}
-
-.favourite-button img {
-    width: 100%;
-    height: 100%;
-}
-
+/* Footer, toolbar, and icons */
 .footer {
     display: flex;
     justify-content: center;
@@ -434,3 +81,536 @@ body {
 .icon-button:hover {
     color: #76c7c0;
 }
+.ac-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.ac-popup-content {
+    width: 400px;
+    height: 215.5px;
+    background: #090909; /* Dark background */
+    padding: 20px;
+    border-radius: 23.5px;
+    position: relative;
+    color: #fff; /* White text color */
+    padding: 40px; /* Added padding */
+    box-sizing: border-box;
+    transform: translate(290px, 98px); /* Move to the right and down */
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.ac-popup-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.temperature-control,
+.fan-speed-control {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+input[type='range'] {
+    flex-grow: 1;
+    -webkit-appearance: none;
+    height: 4px;
+    border-radius: 5px;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.temperature-slider {
+    background: linear-gradient(90deg, #00FFFF 0%, #D84343 100%);
+}
+
+.temperature-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+}
+
+.temperature-slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+}
+
+.fan-speed-slider {
+    background: #fff;
+}
+
+.fan-speed-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+}
+
+.fan-speed-slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+}
+
+.fan-speed-dots {
+    display: flex;
+    gap: 12px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #fff;
+    opacity: 0.5;
+}
+
+.dot.active {
+    opacity: 1;
+}
+
+span {
+    font-size: 20px;
+}
+.main-content {
+  display: flex;
+  height: 0vh;
+  background-color: #090909;
+  color: white;
+  margin-top: 0px;
+}
+
+.sidebar {
+  width: 25%;
+  padding: 0px;
+  background-color: #161616;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.sidebar-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0px;
+  margin-bottom: 10px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  text-align: left;
+  font-size: 23px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Urbanist', sans-serif;
+}
+
+.sidebar-button:hover,
+.sidebar-button.active {
+  background-color: #2d2d2d;
+}
+
+.sidebar-icon {
+  margin-right: 10px; /* Adjust the spacing between the icon and text */
+  width: 40px; /* Adjust the size of the icon as needed */
+  height: 40px;
+}
+
+.settings {
+  flex: 1;
+  padding-left: 200px;
+  
+}
+
+.settings-group {
+  margin-bottom: 30px;
+}
+
+.settings-group-title {
+  font-size: 21px;
+  font-family: 'Urbanist', sans-serif;
+  margin-bottom: 10px;
+}
+
+.settings-options {
+  display: flex;
+  position: relative;
+  padding: 10px 0;
+}
+
+.settings-option-l {
+  padding: 10px 20px;
+  width: 240px;
+  height: 48px;
+  border: none;
+  background-color: #2d2d2d;
+  color: white;
+  font-size: 21px;
+  font-family: 'Urbanist', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+}
+
+.settings-option-m {
+  padding: 10px 20px;
+  width: 240px;
+  height: 48px;
+  border: none;
+  background-color: #2d2d2d;
+  color: white;
+  font-size: 21px;
+  cursor: pointer;
+  font-family: 'Urbanist', sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.settings-option-r {
+  padding: 10px 20px;
+  width: 240px;
+  height: 48px;
+  border: none;
+  background-color: #2d2d2d;
+  color: white;
+  font-size: 21px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Urbanist', sans-serif;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.settings-option-l.active {
+  background-color: #4d4d4d;
+}
+
+.settings-option-m.active {
+  background-color: #4d4d4d;
+}
+
+.settings-option-r.active {
+  background-color: #4d4d4d;
+}
+
+.settings-option-l2 {
+  padding: 10px 20px;
+  width: 380px;
+  height: 48px;
+  border: none;
+  background-color: #2d2d2d;
+  color: white;
+  font-size: 21px;
+  cursor: pointer;
+  font-family: 'Urbanist', sans-serif;
+  transition: background-color 0.3s ease;
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+}
+
+.settings-option-r2 {
+  padding: 10px 20px;
+  width: 342px;
+  height: 48px;
+  border: none;
+  background-color: #2d2d2d;
+  color: white;
+  font-size: 21px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Urbanist', sans-serif;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.settings-option-l2.active {
+  background-color: #4d4d4d;
+}
+
+.settings-option-r2.active {
+  background-color: #4d4d4d;
+}
+
+/* Existing styles */
+
+/* Brightness slider customization */
+.brightness-slider {
+  display: flex;
+  align-items: center;
+  width: 735px;
+  height: 52px;
+  position: relative;
+}
+
+.brightness-slider input[type='range'] {
+  margin: 0 10px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: #4d4d4d;
+  height: 40px;
+  border-radius: 40px;
+  width: 100%;
+  position: relative; /* Ensure the thumb is positioned relative to the input */
+}
+
+.brightness-slider input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 70px;
+  height: 44px;
+  background: #ffffff;
+  border-radius: 20px; /* Make the thumb circular */
+  cursor: pointer;
+  position: relative;
+  background: url('/images/brightness.svg') no-repeat center center;
+  background-size: 50px 50px; /* Adjust the size of the icon */
+}
+
+.brightness-slider input[type='range']::-moz-range-thumb {
+  width: 70px;
+  height: 40px;
+  background: #ffffff;
+  border-radius: 20px; /* Make the thumb circular */
+  cursor: pointer;
+  position: relative;
+  background: url('/images/brightness.svg') no-repeat center center;
+  background-size: 70px 70px; /* Adjust the size of the icon */
+}
+
+.slider-thumb-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 21px;
+  color: #ffff;
+  pointer-events: none;
+}
+
+.traction-control {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.traction-control-option {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px; /* Add margin-bottom to create space between the two options */
+}
+
+.traction-control-button {
+  padding: 10px 20px;
+  width: 230px;
+  height: 48px;
+  border: 2px solid white; /* Added border */
+  background-color: #0E0E0E;
+  color: white;
+  font-size: 21px;
+  cursor: pointer;
+  font-family: 'Urbanist', sans-serif;
+  transition: background-color 0.3s ease;
+  border-radius: 20px;
+}
+
+.traction-control-button:hover,
+.traction-control-button.active {
+  background-color: #4d4d4d;
+  border: 2px solid white; /* Ensure the border stays white on hover and active states */
+}
+
+.settings-description {
+  font-size: 16px;
+  margin-top: 10px;
+  color: #bbbbbb;
+}
+
+.settings-description-regenerative {
+  font-size: 19px;
+  margin-top: 10px;
+  color: #bbbbbb;
+  position: absolute;
+  top: 40%;
+  left: calc(63%); /* Adjust this value as needed */
+  transform: translateY(-54%);
+  white-space: nowrap;
+}
+
+.settings-description-traction {
+  font-size: 19px;
+  margin-left: 20px; /* Adjust this value as needed */
+  color: #bbbbbb;
+  white-space: nowrap;
+}
+
+.wiper-service-mode-button,
+.adjust-headlights-button,
+.headlight-reset-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  margin-bottom:20px;
+}
+
+.wiper-service-mode-button {
+  padding: 15px 25px;
+  width: 330px;
+  height: 54px;
+  border: 2px solid white;
+  background-color: #0E0E0E;
+  border-radius: 30px;
+}
+
+.wiper-service-mode-button:hover {
+  background-color: #4d4d4d;
+}
+
+.adjust-headlights-button,
+.headlight-reset-button {
+  padding: 65px 25px;
+  width: 264px;
+  height: 146px;
+  background-color: #2d2d2d;
+  border-radius: 20px;
+  border:none;
+}
+
+.adjust-headlights-button:hover,
+.headlight-reset-button:hover {
+  background-color: #4d4d4d;
+}
+
+.button-icon {
+  margin-right: 10px;
+  width: 50px;
+  height: 50px;
+}
+
+.button-text {
+  margin: 0;
+}
+
+.empty-content {
+  color: white;
+  font-size: 24px;
+}
+
+.setting-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 600px;
+  padding: 10px 0;
+  font-size: 21px;
+  font-family: 'Urbanist', sans-serif;
+  margin-bottom:20px;
+}
+
+.switch {
+  position: absolute;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  transform: translate(-200%,0%);
+
+
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 34px;
+  
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+
+
+
+
+
+
+
+
+
+
+  

@@ -1,8 +1,7 @@
 // pages/index.tsx
 import React from 'react';
 import Head from 'next/head';
-import Header from '../components/Header';
-import MainContent from '../components/MainContent';
+import MainContent from '../components/MainContent2';
 import Footer from '../components/Footer';
 
 const Home: React.FC = () => {
@@ -17,7 +16,6 @@ const Home: React.FC = () => {
         <title>Car Dashboard with Music Toolbar</title>
       </Head>
 
-      <Header />
       <MainContent />
       <Footer />
     </div>
