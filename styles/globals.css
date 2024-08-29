@@ -17,7 +17,7 @@ body {
     width: 100%;
     max-width: 2000px; /* Increased width to fit the icons */
     height: 100%;
-    max-height: 640px; /* Full height with a max */
+    max-height: 650px; /* Full height with a max */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -213,50 +213,16 @@ span {
 }
 .main-content {
   display: flex;
-  height: 0vh;
+  height: 90vh;
   background-color: #090909;
   color: white;
   margin-top: 0px;
 }
 
-.sidebar {
-  width: 25%;
-  padding: 0px;
-  background-color: #161616;
-  font-family: 'Urbanist', sans-serif;
-}
-
-.sidebar-button {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  padding: 10px 0px;
-  margin-bottom: 10px;
-  background-color: transparent;
-  border: none;
-  color: white;
-  text-align: left;
-  font-size: 23px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  font-family: 'Urbanist', sans-serif;
-}
-
-.sidebar-button:hover,
-.sidebar-button.active {
-  background-color: #2d2d2d;
-}
-
-.sidebar-icon {
-  margin-right: 10px; /* Adjust the spacing between the icon and text */
-  width: 40px; /* Adjust the size of the icon as needed */
-  height: 40px;
-}
 
 .settings {
   flex: 1;
-  padding-left: 200px;
-  
+  padding-left:100px;
 }
 
 .settings-group {
@@ -264,9 +230,9 @@ span {
 }
 
 .settings-group-title {
-  font-size: 21px;
-  font-family: 'Urbanist', sans-serif;
-  margin-bottom: 10px;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 235px;
 }
 
 .settings-options {
@@ -277,9 +243,9 @@ span {
 
 .settings-option-l {
   padding: 10px 20px;
-  width: 240px;
-  height: 48px;
-  border: none;
+  width:240px;
+  height:48px;
+  border: none;   
   background-color: #2d2d2d;
   color: white;
   font-size: 21px;
@@ -292,22 +258,23 @@ span {
 
 .settings-option-m {
   padding: 10px 20px;
-  width: 240px;
-  height: 48px;
-  border: none;
+  width:240px;
+  height:48px;
+  border: none;   
   background-color: #2d2d2d;
   color: white;
   font-size: 21px;
   cursor: pointer;
   font-family: 'Urbanist', sans-serif;
   transition: background-color 0.3s ease;
+
 }
 
 .settings-option-r {
   padding: 10px 20px;
-  width: 240px;
-  height: 48px;
-  border: none;
+  width:240px;
+  height:48px;
+  border: none;   
   background-color: #2d2d2d;
   color: white;
   font-size: 21px;
@@ -320,21 +287,24 @@ span {
 
 .settings-option-l.active {
   background-color: #4d4d4d;
-}
 
+}
 .settings-option-m.active {
   background-color: #4d4d4d;
-}
 
+
+}
 .settings-option-r.active {
   background-color: #4d4d4d;
+
+
 }
 
 .settings-option-l2 {
   padding: 10px 20px;
-  width: 380px;
-  height: 48px;
-  border: none;
+  width:380px;
+  height:48px;
+  border: none;   
   background-color: #2d2d2d;
   color: white;
   font-size: 21px;
@@ -345,11 +315,13 @@ span {
   border-bottom-left-radius: 40px;
 }
 
+
+
 .settings-option-r2 {
   padding: 10px 20px;
-  width: 342px;
-  height: 48px;
-  border: none;
+  width:342px;
+  height:48px;
+  border: none;   
   background-color: #2d2d2d;
   color: white;
   font-size: 21px;
@@ -362,12 +334,19 @@ span {
 
 .settings-option-l2.active {
   background-color: #4d4d4d;
+  
+
 }
 
 .settings-option-r2.active {
   background-color: #4d4d4d;
+
+
 }
 
+/* Existing styles */
+
+/* Brightness slider customization */
 /* Existing styles */
 
 /* Brightness slider customization */
@@ -424,193 +403,384 @@ span {
   pointer-events: none;
 }
 
-.traction-control {
+.parking-brake-button{
   display: flex;
   flex-direction: column;
-  gap: 20px;
-}
-
-.traction-control-option {
-  display: flex;
   align-items: center;
-  margin-bottom: 30px; /* Add margin-bottom to create space between the two options */
-}
-
-.traction-control-button {
-  padding: 10px 20px;
-  width: 230px;
-  height: 48px;
-  border: 2px solid white; /* Added border */
-  background-color: #0E0E0E;
+  width: 264px;
+  height: 141.6px;
+  justify-content: center;
+  background-color: #0E0E0E; /* Button background color */
+  border: 1.6px solid #FFFFFF66; /* Button border color */
+  border-radius: 40px;
+  
   color: white;
-  font-size: 21px;
+  font-family: 'Montserrat', sans-serif; /* Set font to Montserrat */
+  font-size: 20px; /* Set font size to 20px */
   cursor: pointer;
-  font-family: 'Urbanist', sans-serif;
-  transition: background-color 0.3s ease;
-  border-radius: 20px;
+  outline: none;
+  transition: background-color 0.3s;
+}  
+
+.parking-brake-button:hover {
+  background-color: #0E0E0E;
 }
 
-.traction-control-button:hover,
-.traction-control-button.active {
-  background-color: #4d4d4d;
-  border: 2px solid white; /* Ensure the border stays white on hover and active states */
+.parking-brake-button .icon img {
+  width: 50px; /* Adjust the size of the image */
+  margin-bottom: 10px;
 }
 
-.settings-description {
-  font-size: 16px;
-  margin-top: 10px;
-  color: #bbbbbb;
+.parking-brake-button .text {
+  text-align: center;
 }
 
-.settings-description-regenerative {
-  font-size: 19px;
-  margin-top: 10px;
-  color: #bbbbbb;
-  position: absolute;
-  top: 40%;
-  left: calc(63%); /* Adjust this value as needed */
-  transform: translateY(-54%);
-  white-space: nowrap;
+.parking-brake-button .text div {
+  margin: 5px 0;
 }
 
-.settings-description-traction {
-  font-size: 19px;
-  margin-left: 20px; /* Adjust this value as needed */
-  color: #bbbbbb;
-  white-space: nowrap;
+.icon{
+  margin-right: 110px;
+  margin-top: 50px;
 }
 
-.wiper-service-mode-button,
-.adjust-headlights-button,
-.headlight-reset-button {
+.text1{
+  margin-right: 100px;
+}
+.parking-brake-button1 {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: white;
-  font-size: 18px;
-  font-family: 'Montserrat', sans-serif;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  text-align: center;
-  margin-bottom:20px;
-}
-
-.wiper-service-mode-button {
-  padding: 15px 25px;
-  width: 330px;
-  height: 54px;
-  border: 2px solid white;
-  background-color: #0E0E0E;
-  border-radius: 30px;
-}
-
-.wiper-service-mode-button:hover {
-  background-color: #4d4d4d;
-}
-
-.adjust-headlights-button,
-.headlight-reset-button {
-  padding: 65px 25px;
   width: 264px;
-  height: 146px;
-  background-color: #2d2d2d;
-  border-radius: 20px;
-  border:none;
-}
-
-.adjust-headlights-button:hover,
-.headlight-reset-button:hover {
-  background-color: #4d4d4d;
-}
-
-.button-icon {
-  margin-right: 10px;
-  width: 50px;
-  height: 50px;
-}
-
-.button-text {
-  margin: 0;
-}
-
-.empty-content {
+  height: 141.6px;
+  background-color: #0E0E0E; /* Button background color */
+  border: 1.6px solid #FFFFFF66; /* Updated button border color */
+  border-radius: 40px; /* Updated corner radius */
+  padding: 20px;
   color: white;
-  font-size: 24px;
+  font-family: 'Montserrat', sans-serif; /* Set font to Montserrat */
+  font-size: 20px; /* Set font size to 20px */
+  cursor: pointer;
+  outline: none;
+  position: absolute;
+  top: 100px;
+  left: 685px;
+  transition: background-color 0.3s;
 }
 
-.setting-option {
+.parking-brake-button1:hover {
+  background-color: #0E0E0E;
+}
+
+.icon-text1 {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: 600px;
-  padding: 10px 0;
-  font-size: 21px;
-  font-family: 'Urbanist', sans-serif;
-  margin-bottom:20px;
 }
 
-.switch {
+.parking-brake-button1 .icon img {
+  width: 50px; /* Adjust the size of the image */
+  margin-right: 10px;
+}
+
+.parking-brake-button1 .text12,
+.parking-brake-button1 .text21 {
+  text-align: center;
+}
+
+.parking-brake-button1 .text12 {
+  font-size: 20px;
+}
+
+.parking-brake-button1 .text21{
+  margin-top: 10px; /* Space between the two text sections */
+  font-size: 20px;
+}
+
+.vehicle-power{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 176px;
+  height: 48px;
+  background-color: #0E0E0E; /* Button background color */
+  border: 1.6px solid #FFFFFF66; /* Updated button border color */
+  border-radius: 40px; /* Updated corner radius */
+  padding: 20px;
+  color: white;
+  font-family: 'Montserrat', sans-serif; /* Set font to Montserrat */
+  font-size: 20px; /* Set font size to 20px */
+  cursor: pointer;
+  outline: none;
   position: absolute;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-  transform: translate(-200%,0%);
-
-
+  top: 350px;
+  left: 685px;
+  transition: background-color 0.3s;
 }
 
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-  
+.vehicle-power:hover{
+  background-color: #0E0E0E;
 }
 
-.slider {
+.below-vehicle-power{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  top: 417px;
+  left: 285px;
   position: absolute;
   cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: .4s;
-  border-radius: 34px;
-  
+  outline: none;
+  color: white;
+  margin-left: 404px;
+  margin-bottom: 500px;
 }
 
-.slider:before {
+.beside-parking-brake{
+  font-family: 'Montserrat',sans-serif;
+  font-size: 20px;
   position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: .4s;
-  border-radius: 50%;
+  cursor: pointer;
+  outline: none;
+  color: white;
+  top: 117px;
+  left: 990px;
 }
 
-input:checked + .slider {
-  background-color: #2196F3;
+.arrow-button{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  border: #090909;
+  background-color: #090909;
+  position: relative;
+  width: 25;
+  height: 50%;
+  max-width: 25;
+  max-height: 25;
 }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+.sidebar {
+  position:absolute;
+  width: 17%;
+  height: 570px;
+  background-color: #161616;
+  color: white;
+  display: flex;
+  flex-direction: column;
 }
 
-input:checked + .slider:before {
-  transform: translateX(26px);
+.sidebar-button {
+  display: block;
+  width: 100%;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  text-align: left;
+  font-size: 23px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Urbanist', sans-serif;
 }
 
+.sidebar-button.active .sidebar-text {
+  color: white; /* Makes the text glow white */
+  font-weight: bold; /* Optional: Make the text bold */
+  text-shadow: 0 0 5px white; /* Optional: Add a glowing effect */
+}
 
+.sidebar-text{
+  margin-left: 60px;
+  margin-bottom: 0px;
+  color: #737373;
+  font-weight: bold;
+  font-size: x-large;
+}
 
+.sidebar-text:hover{
+  color: white;
+}
 
+.sidebar-icon{
+  margin-top: 0px;
+  position: absolute;
+  align-content: center;
+}
 
+.arrow{
+  margin-left: 50px;
+  margin-bottom: 490px;
+}
 
+.mini-sidebar {
+  position:absolute;
+  width: 17%;
+  height: 570px;  
+  margin-left: 20%;
+  margin-top: -570px;
+  padding: 0px;
+  background-color: #292929;
+  font-family: 'Urbanist', sans-serif;
+  transform: translate(-20%,100%);
+}
 
+.mini-sidebar-button {
+  display: block;
+  width: 100%;
+  padding: 15px 20px;
+  position: static;
+  margin-bottom: 10px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  text-align: left;
+  font-size: 23px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Urbanist', sans-serif;
+  transition: color 0.3s ease;
+}
 
+.mini-sidebar-button.active .mini-sidebar-text {
+  color: white; /* Makes the text glow white */
+  font-weight: bold; /* Optional: Make the text bold */
+  text-shadow: 0 0 5px white; /* Optional: Add a glowing effect */
+}
 
+.mini-sidebar-text{
+  margin-left: 0px;
+  margin-bottom: 0px;
+  color: #737373;
+  font-weight: bold;
+  font-size: x-large;
+}
 
+.mini-sidebar-text:hover{
+  color: white;
+}
 
+.diagnostics-arrow-section{
+  margin-left: 40%;
+  top: 40%;
+  margin-top: -625px;
+  height: 570px;
+}
+
+.diagnostics-arrow-button{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  border: #090909;
+  background: linear-gradient(
+    to bottom,
+    #131D43 0%,
+    #131E41 25%,
+    #1D2A5D 40%,
+    #12224F 68%,
+    #081f44 100%
+  ), #313131;
+  position: relative;
+  width: 25;
+  height: 50px;
+  max-width: 25;
+  max-height: 5;
+}
+
+.diagnostics-arrow{
+  margin-left: 20px;
+  margin-bottom: 0px;
+}
+/* globals.css */
+
+/* General Styling for Screens */
+/* Screen Content Styling */
+/* Screen Content Styling */
+.screen-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 250px;
+  padding: 90px;
+  width: 100%;
+  font-family: 'Urbanist', sans-serif; /* Apply Urbanist font */
+}
+
+/* Low Level Controls Screen Specific Styling */
+.low-level-controls-screen {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* Space between controls and car */
+}
+
+.controls-container {
+  background-color: #333; /* Grey background color */
+  border-radius: 10px;
+  padding: 20px;
+  color: #fff; /* White text color */
+  min-width: 230px; /* Minimum width for the controls container */
+  transform: translate(-10%, -15%);
+}
+
+.control-item {
+  display: flex;
+  justify-content: space-between; /* Ensure spacing between label and status */
+  align-items: center;
+  padding: 10px 0;
+}
+
+.control-label {
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+.control-detail {
+  font-size: 16px; /* Slightly smaller font for the detail text */
+  transform: translate(-108%, 80%);
+}
+
+.control-status {
+  color: #0f0; /* Green for ON, red for OFF */
+  margin-left: 10px; /* Small space between the label and status */
+}
+
+.control-hint {
+  font-style: italic;
+  text-align: center; /* Center text horizontally */
+  margin-top: 20px; /* Add margin for spacing */
+}
+
+.car-container {
+  position: relative;
+  transform: translate(10%, 35%);
+}
+
+.car-image {
+  width: 677.5px; /* Adjust width as needed */
+}
+
+.arrow-image {
+  position: absolute;
   
+  left: 100px; /* Adjust position as needed */
+  transform: translate(-60%,-900%);
+  width: 400px; /* Adjust width as needed */
+}
+.arrow1-image {
+  position: absolute;
+  height:121px;
+  left: 260px; /* Adjust position as needed */
+  transform: translate(40%,-43%);
+  width: 1.1px; /* Adjust width as needed */
+}
+
+
+

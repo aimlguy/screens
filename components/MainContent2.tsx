@@ -1,182 +1,111 @@
 import React, { useState } from 'react';
+import LowLevelControls from '../components/LowLevelControls'; // Import the LowLevelControls component
 
 const MainContent: React.FC = () => {
-  const [activeTab, setActiveTab] = useState('Service');
-  const [steeringMode, setSteeringMode] = useState('sport');
-  const [regenBraking, setRegenBraking] = useState('low');
-  const [tractionControl, setTractionControl] = useState('slip start');
-  const [visibilityMode, setVisibilityMode] = useState('night');
-  const [distanceFormatting, setDistanceFormatting] = useState('miles');
-  const [temperatureFormatting, setTemperatureFormatting] = useState('°c');
-  const [brightness, setBrightness] = useState(10);
+  const [activeSidebar, setActiveSidebar] = useState('Battery');
+  const [activeMiniSidebar, setActiveMiniSidebar] = useState<string | null>(null);
 
-  const handleBrightnessChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setBrightness(Number(event.target.value));
+  const handleSidebarClick = (category: string) => {
+    setActiveSidebar(category);
+    setActiveMiniSidebar(null);
+  };
+
+  const handleMiniSidebarClick = (buttonLabel: string) => {
+    setActiveMiniSidebar(buttonLabel);
+  };
+
+  const miniSidebarButtons: { [key: string]: string[] } = {
+    'Battery': ['Voltage and Current', 'Charge Level', 'Battery Health', 'Cell Voltages', 'Charging Status', 'Battery Status'],
+    'OBC': ['AC Voltage and Current', 'AC Power', 'Charging Time', 'DC Voltage and Current', 'OBC Status', 'Temperature Data'],
+    'AC': ['Temperature', 'Fan Speed', 'AC Status'],
+    'Seating and Lights': ['External Lighting', 'Internal Lighting', 'Table Status'],
+    'Car Status': ['Car Mode', 'Bywire System', 'TV', 'Car Data Level1', 'Car Data Level2', 'Car Data Level3', 'Car Data Level4', 'Error Statuses'],
+    'Doors and Tyres': ['Tyres', 'Side Doors', 'Roof and Boot Doors'],
+    'Vehicular Control': ['Low Level Controls', 'PID Master Values', 'PID Controls', 'Control Unit 1', 'Control Unit 2', 'Control Unit 3']
+  };
+
+  const renderMiniSidebar = () => {
+    return (
+      <div className="mini-sidebar">
+        {miniSidebarButtons[activeSidebar].map((buttonLabel) => (
+          <button 
+            key={buttonLabel} 
+            className={`mini-sidebar-button ${activeMiniSidebar === buttonLabel ? 'active' : ''}`}
+            onClick={() => handleMiniSidebarClick(buttonLabel)}
+          >
+            <div className="mini-sidebar-text">
+              {buttonLabel}
+            </div>
+          </button>
+        ))}
+      </div>
+    );
+  };
+
+  const renderScreen = () => {
+    if (activeMiniSidebar === 'Low Level Controls') {
+      return <LowLevelControls />;
+    }
+    // Add more conditions for other screens as needed
+    return <div className="default-screen">Select an option from the mini-sidebar.</div>;
   };
 
   return (
-    <div className="main-content">
+    <div className="body">
       <div className="sidebar">
-        <button className={`sidebar-button ${activeTab === 'Quick Controls' ? 'active' : ''}`} onClick={() => setActiveTab('Quick Controls')}>
-          <img src="images/quick controls (1).svg" alt="Quick Controls" className="sidebar-icon" />
-          Quick Controls
+        <button 
+          className={`sidebar-button ${activeSidebar === 'Battery' ? 'active' : ''}`} 
+          onClick={() => handleSidebarClick('Battery')}
+        >
+          <div className="sidebar-icon"><img src="images/Battery.svg" alt="Battery" /></div>
+          <div className="sidebar-text">Battery</div>
         </button>
-        <button className={`sidebar-button ${activeTab === 'Lights' ? 'active' : ''}`} onClick={() => setActiveTab('Lights')}>
-          <img src="images/lights (1).svg" alt="Lights" className="sidebar-icon" />
-          Lights
+        <button 
+          className={`sidebar-button ${activeSidebar === 'OBC' ? 'active' : ''}`} 
+          onClick={() => handleSidebarClick('OBC')}
+        >
+          <div className="sidebar-icon"><img src="images/OBC.svg" alt="OBC" /></div>
+          <div className="sidebar-text">OBC</div>
         </button>
-        <button className={`sidebar-button ${activeTab === 'Locks' ? 'active' : ''}`} onClick={() => setActiveTab('Locks')}>
-          <img src="images/lock.svg" alt="Locks" className="sidebar-icon" />
-          Locks
+        <button 
+          className={`sidebar-button ${activeSidebar === 'AC' ? 'active' : ''}`} 
+          onClick={() => handleSidebarClick('AC')}
+        >
+          <div className="sidebar-icon"><img src="images/AC.svg" alt="AC" /></div>
+          <div className="sidebar-text">AC</div>
         </button>
-        <button className={`sidebar-button ${activeTab === 'Display' ? 'active' : ''}`} onClick={() => setActiveTab('Display')}>
-          <img src="images/display.svg" alt="Display" className="sidebar-icon" />
-          Display
+        <button 
+          className={`sidebar-button ${activeSidebar === 'Seating and Lights' ? 'active' : ''}`} 
+          onClick={() => handleSidebarClick('Seating and Lights')}
+        >
+          <div className="sidebar-icon"><img src="images/Seating and Lights.svg" alt="Seating and Lights" /></div>
+          <div className="sidebar-text">Seating and Lights</div>
         </button>
-        <button className={`sidebar-button ${activeTab === 'Driving' ? 'active' : ''}`} onClick={() => setActiveTab('Driving')}>
-          <img src="images/model3-icon-small.svg" alt="Driving" className="sidebar-icon" />
-          Driving
+        <button 
+          className={`sidebar-button ${activeSidebar === 'Car Status' ? 'active' : ''}`} 
+          onClick={() => handleSidebarClick('Car Status')}
+        >
+          <div className="sidebar-icon"><img src="images/tesla.svg" alt="Car Status" /></div>
+          <div className="sidebar-text">Car Status</div>
         </button>
-        <button className={`sidebar-button ${activeTab === 'Autopilot' ? 'active' : ''}`} onClick={() => setActiveTab('Autopilot')}>
-          <img src="images/steering wheel-small.svg" alt="Autopilot" className="sidebar-icon" />
-          Autopilot
+        <button 
+          className={`sidebar-button ${activeSidebar === 'Doors and Tyres' ? 'active' : ''}`} 
+          onClick={() => handleSidebarClick('Doors and Tyres')}
+        >
+          <div className="sidebar-icon"><img src="images/Doors and Tyres.svg" alt="Doors and Tyres" /></div>
+          <div className="sidebar-text">Doors and Tyres</div>
         </button>
-        <button className={`sidebar-button ${activeTab === 'Safety & Security' ? 'active' : ''}`} onClick={() => setActiveTab('Safety & Security')}>
-          <img src="images/safety and security.svg" alt="Safety & Security" className="sidebar-icon" />
-          Safety & Security
-        </button>
-        <button className={`sidebar-button ${activeTab === 'Service' ? 'active' : ''}`} onClick={() => setActiveTab('Service')}>
-          <img src="images/service.svg" alt="Service" className="sidebar-icon" />
-          Service
+        <button 
+          className={`sidebar-button ${activeSidebar === 'Vehicular Control' ? 'active' : ''}`} 
+          onClick={() => handleSidebarClick('Vehicular Control')}
+        >
+          <div className="sidebar-icon"><img src="images/Vehicular Control.svg" alt="Vehicular Control" /></div>
+          <div className="sidebar-text">Vehicular Control</div>
         </button>
       </div>
-      <div className="settings">
-        {activeTab === 'Service' ? (
-          <>
-            <button className="wiper-service-mode-button">
-              <img src="images/wiper.svg" alt="Wiper Service Mode" className="button-icon" />
-              <span className="button-text">wiper service mode</span>
-            </button>
-            <button className="adjust-headlights-button">
-              <img src="images/headlights-small.svg" alt="Adjust Headlights" className="button-icon" />
-              <span className="button-text">ADJUST HEADLIGHTS</span>
-            </button>
-            <button className="headlight-reset-button">
-              <img src="images/headlights-small.svg" alt="Headlight Reset" className="button-icon" />
-              <span className="button-text">HEADLIGHT RESET</span>
-            </button>
-          </>
-        ) : activeTab === 'Locks' ? (
-          <>
-            <div className="setting-option">
-              <span>Walk Up Unlock</span>
-              <label className="switch">
-                <input type="checkbox" />
-                <span className="slider"></span>
-              </label>
-            </div>
-            <div className="setting-option">
-              <span>Walk Away Unlock</span>
-              <label className="switch">
-                <input type="checkbox" defaultChecked />
-                <span className="slider"></span>
-              </label>
-            </div>
-            <div className="setting-option">
-              <span>Child Protection Lock</span>
-              <label className="switch">
-                <input type="checkbox" />
-                <span className="slider"></span>
-              </label>
-            </div>
-            <div className="setting-option">
-              <span>Unlock on Park</span>
-              <label className="switch">
-                <input type="checkbox" defaultChecked />
-                <span className="slider"></span>
-              </label>
-            </div>
-          </>
-        ) : activeTab === 'Driving' ? (
-          <>
-            <div className="settings-group">
-              <div className="settings-group-title">Steering Mode</div>
-              <div className="settings-options">
-                <button className={`settings-option-l ${steeringMode === 'comfort' ? 'active' : ''}`} onClick={() => setSteeringMode('comfort')}>comfort</button>
-                <button className={`settings-option-m ${steeringMode === 'sport' ? 'active' : ''}`} onClick={() => setSteeringMode('sport')}>sport</button>
-                <button className={`settings-option-r ${steeringMode === 'standard' ? 'active' : ''}`} onClick={() => setSteeringMode('standard')}>standard</button>
-              </div>
-            </div>
-    
-            <div className="settings-group">
-              <div className="settings-group-title">Regenerative Braking</div>
-              <div className="settings-options">
-                <button className={`settings-option-l2 ${regenBraking === 'standard' ? 'active' : ''}`} onClick={() => setRegenBraking('standard')}>standard</button>
-                <button className={`settings-option-r2 ${regenBraking === 'low' ? 'active' : ''}`} onClick={() => setRegenBraking('low')}>low</button>
-                <div className="settings-description-regenerative">
-                  Standard increases range and extends battery life
-                </div>
-              </div>
-            </div>
-    
-            <div className="settings-group">
-              <div className="settings-group-title">Traction Control</div>
-              <div className="traction-control">
-                <div className="traction-control-option">
-                  <button className={`traction-control-button ${tractionControl === 'slip start' ? 'active' : ''}`} onClick={() => setTractionControl('slip start')}>slip start</button>
-                  <div className="settings-description-traction">
-                    Used to help vehicle stuck in sand, snow, or mud
-                  </div>
-                </div>
-                <div className="traction-control-option">
-                  <button className={`traction-control-button ${tractionControl === 'creep' ? 'active' : ''}`} onClick={() => setTractionControl('creep')}>creep</button>
-                  <div className="settings-description-traction">
-                    Slowly move forward when the brake pedal is released
-                  </div>
-                </div>
-              </div>
-            </div>
-          </>
-        ) : activeTab === 'Display' ? (
-          <>
-            <div className="settings-group">
-              <div className="settings-group-title">Visibility Mode</div>
-              <div className="settings-options">
-                <button className={`settings-option-l ${visibilityMode === 'auto' ? 'active' : ''}`} onClick={() => setVisibilityMode('auto')}>auto</button>
-                <button className={`settings-option-m ${visibilityMode === 'day' ? 'active' : ''}`} onClick={() => setVisibilityMode('day')}>day</button>
-                <button className={`settings-option-r ${visibilityMode === 'night' ? 'active' : ''}`} onClick={() => setVisibilityMode('night')}>night</button>
-              </div>
-            </div>
-    
-            <div className="settings-group">
-              <div className="settings-group-title">Display Brightness</div>
-              <div className="settings-options">
-                <div className="brightness-slider">
-                  <input type="range" min="0" max="100" value={brightness} onChange={handleBrightnessChange} />
-                  <div className="slider-thumb-text">{brightness}%</div>
-                </div>
-              </div>
-            </div>
-    
-            <div className="settings-group">
-              <div className="settings-group-title">Distance Formatting</div>
-              <div className="settings-options">
-                <button className={`settings-option-l2 ${distanceFormatting === 'miles' ? 'active' : ''}`} onClick={() => setDistanceFormatting('miles')}>miles</button>
-                <button className={`settings-option-r2 ${distanceFormatting === 'km' ? 'active' : ''}`} onClick={() => setDistanceFormatting('km')}>km</button>
-              </div>
-            </div>
-    
-            <div className="settings-group">
-              <div className="settings-group-title">Temperature Formatting</div>
-              <div className="settings-options">
-                <button className={`settings-option-l2 ${temperatureFormatting === '°c' ? 'active' : ''}`} onClick={() => setTemperatureFormatting('°c')}>°c</button>
-                <button className={`settings-option-r2 ${temperatureFormatting === '°f' ? 'active' : ''}`} onClick={() => setTemperatureFormatting('°f')}>°f</button>
-              </div>
-            </div>
-          </>
-        ) : (
-          <div className="settings-content">{activeTab}</div>
-        )}
+      {renderMiniSidebar()}
+      <div className="screen-content">
+        {renderScreen()}
       </div>
     </div>
   );
