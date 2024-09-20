@@ -707,9 +707,9 @@ span {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left: 250px;
+  margin-left: 588px;
   padding: 90px;
-  width: 100%;
+  width: 92%;
   font-family: 'Urbanist', sans-serif; /* Apply Urbanist font */
 }
 
@@ -721,12 +721,12 @@ span {
 }
 
 .controls-container {
-  background-color: #333; /* Grey background color */
-  border-radius: 10px;
-  padding: 20px;
-  color: #fff; /* White text color */
-  min-width: 230px; /* Minimum width for the controls container */
-  transform: translate(-10%, -15%);
+    background-color: #333;
+    border-radius: 10px;
+    padding: 10px;
+    color: #fff;
+    min-width: 550px;
+    transform: translate(31.5%, -46%);
 }
 
 .control-item {
@@ -739,7 +739,6 @@ span {
 .control-label {
   display: flex;
   flex-direction: column;
-  font-weight: bold;
 }
 
 .control-detail {
@@ -764,19 +763,85 @@ span {
 }
 
 .car-image {
-  width: 677.5px; /* Adjust width as needed */
 }
 
 .arrow-image {
   position: absolute;
   
   left: 100px; /* Adjust position as needed */
-  transform: translate(-60%,-900%);
-  width: 400px; /* Adjust width as needed */
+  transform: translate(-19%, -53%);
+  width: 200px; /* Adjust width as needed */
 }
 .arrow1-image {
   position: absolute;
   height:121px;
+  left: 260px; /* Adjust position as needed */
+  transform: translate(40%,-43%);
+  width: 1.1px; /* Adjust width as needed */
+}
+
+
+.low-level-controls-screen1 {
+  display: flex;
+  align-items: center;
+  gap: 40px; /* Space between controls and car */
+}
+
+.controls-container1 {
+    background-color: #333;
+    border-radius: 10px;
+    padding: 10px;
+    color: #fff;
+    min-width: 550px;
+    transform: translate(-211.5%, 91%);
+}
+
+.control-item1 {
+  display: flex;
+  justify-content: space-between; /* Ensure spacing between label and status */
+  align-items: center;
+  padding: 10px 0;
+}
+
+.control-label1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.control-detail1 {
+  font-size: 16px; /* Slightly smaller font for the detail text */
+  transform: translate(-108%, 80%);
+}
+
+.control-status1 {
+  color: #0f0; /* Green for ON, red for OFF */
+  margin-left: 10px; /* Small space between the label and status */
+}
+
+.control-hint1 {
+  font-style: italic;
+  text-align: center; /* Center text horizontally */
+  margin-top: 20px; /* Add margin for spacing */
+}
+
+.car-container1 {
+  position: relative;
+  transform: translate(10%, 35%);
+}
+
+.car-image {
+}
+
+.arrow-image1 {
+  position: absolute;
+  
+  left: 100px; /* Adjust position as needed */
+  transform: translate(-674%, 160%);
+  width: 200px; /* Adjust width as needed */
+}
+.arrow1-image1 {
+  position: absolute;
+  height:121px; 
   left: 260px; /* Adjust position as needed */
   transform: translate(40%,-43%);
   width: 1.1px; /* Adjust width as needed */

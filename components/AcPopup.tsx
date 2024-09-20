@@ -14,7 +14,7 @@ const AcPopup: React.FC<AcPopupProps> = ({ onClose }) => {
         </button>
         <h2>AC Control</h2>
         {/* Add your AC control content here */}
-        <p>Temperature: 24°C</p>
+        <p>Temperature: 25°C</p>
         <p>Fan Speed: Medium</p>
       </div>
     </div>

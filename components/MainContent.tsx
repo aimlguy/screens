@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import LowLevelControls from '../components/LowLevelControls'; // Import the LowLevelControls component
 
+
 const MainContent: React.FC = () => {
   const [activeSidebar, setActiveSidebar] = useState('Battery');
   const [activeMiniSidebar, setActiveMiniSidebar] = useState<string | null>(null);

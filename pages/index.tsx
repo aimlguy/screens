@@ -1,7 +1,7 @@
 // pages/index.tsx
 import React from 'react';
 import Head from 'next/head';
-import MainContent from '../components/MainContent2';
+import MainContent from '../components/MainContent';
 import Footer from '../components/Footer';
 
 const Home: React.FC = () => {
